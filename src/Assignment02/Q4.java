@@ -1,68 +1,56 @@
 package Assignment02;
 
+
+interface Wooden{
+    void fireTest();
+    void stressTest();
+}
+
+interface Metal{
+    void fireTest();void stressTest();
+}
+
+class Chair implements Wooden, Metal{
+
+    String type;
+    public Chair(String type){
+        this.type = type;
+    }
+    @Override
+    public void fireTest() {
+        System.out.println(this.type+" chair fire test!");
+    }
+
+    @Override
+    public void stressTest() {
+        System.out.println(this.type+" chair stress test!");
+    }
+}
+
+class Table implements Wooden, Metal{
+    String type;
+    public Table(String type){
+        this.type = type;
+    }
+    @Override
+    public void fireTest() {
+        System.out.println(this.type+" table fire test!");
+    }
+
+    @Override
+    public void stressTest() {
+        System.out.println(this.type+" table stress test!");
+    }
+}
 public class Q4 {
-    static class Wooden{
-        String item;// table or chair
-        public Wooden(String item) {
-            this.item = item;
-        }
-    }
-    static class WoodenChair extends Wooden{
-        public WoodenChair(String item) {
-            super(item);
-        }
-        public void StressTest(){
-            System.out.println("wooden chair stress test");
-        }
-        public void FireTest(){
-            System.out.println("wooden chair fire test");
-        }
-
-    }
-    static class WoodenTable extends Wooden{
-        public WoodenTable(String item) {
-            super(item);
-        }
-        public void StressTest(){
-            System.out.println("wooden table stress test");
-        }
-        public void FireTest(){
-            System.out.println("wooden table fire test");
-        }
-    }
-    static class Metal{
-        String item;// table or chair
-        public Metal(String item) {
-            this.item = item;
-        }
-    }
-    static class MetalChair extends Metal{
-
-        public MetalChair(String item) {
-            super(item);
-        }
-
-        public void StressTest(){
-            System.out.println("metal chair stress test");
-        }
-        public void FireTest(){
-            System.out.println("metal chair fire test");
-        }
-
-    }
-    static class MetalTable extends Metal{
-        public MetalTable(String item) {
-            super(item);
-        }
-        public void StressTest(){
-            System.out.println("metal table stress test");
-        }
-        public void FireTest(){
-            System.out.println("metal table fire test");
-        }
-    }
-
     public static void main(String[] args) {
-
+        Chair woodenChair = new Chair("wooden");
+        Table woodenTable = new Table("wooden");
+        Chair metalChair = new Chair("metal");
+        Table metalTable = new Table("metal");
+        metalTable.fireTest();
+        metalChair.fireTest();
+        woodenTable.fireTest();
+        woodenChair.fireTest();
     }
 }
